@@ -1,0 +1,21 @@
+p{
+    color :tomato;
+    background-color :whitesmoke;
+    font-size: 45px;
+    text-transform: uppercase;                
+                
+
+
+}
+
+
+h1{
+    font-size: 70px;
+    font-style: oblique;
+}
+
+
+h4{
+    border-color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
