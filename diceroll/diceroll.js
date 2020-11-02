@@ -7,6 +7,25 @@ let dicePicEl = document.getElementById("dicePic")
 dicePicEl.addEventListener("click", roll)
 let playerOneEl = document.getElementById("playerOne")
 let playerTwoEl = document.getElementById("playerTwo")
+let continueButton = document.getElementById("button")
+continueButton.addEventListener("click", buttonClicked)
+
+//messages
+let firstMessage = document.getElementById("firstMessage")
+
+
+let timesButtonClicked = 0
+
+
+function buttonClicked(){
+    if(timesButtonClicked === 1){
+
+    }
+    
+    timesButtonClicked++
+    console.log(timesButtonClicked)
+}
+
 
 
 playerOneEl.innerHTML = playerOne
