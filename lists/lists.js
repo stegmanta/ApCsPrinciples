@@ -63,7 +63,7 @@ let newNames = names.filter((name) => {
 
 })
 
-console.log(`the new names are ${newNames}`)
+console.log(`the new names without Dan are ${newNames}`)
 
 
 // make double the numbers using map function
@@ -86,3 +86,61 @@ let oddNums = nums.forEach((num, i) =>{
 })
 
 console.log(`the amount of odd numbers in the nums list is ${amountOfOdd}`)
+
+console.log(`the maximum of the nums list is ${Math.max(...nums)}`)
+console.log(`the minimum value of the nums list is ${Math.min(...nums)} `)
+
+
+// check if favorite animal is in the zoo 
+
+let zooAnimals = [`Tiger`, `Lion`, `Bear`,`Penguin`,`Gorilla`, `Elephant`]
+let favAnimal = "Elephant"
+var hasAnimal = false
+
+
+zooAnimals.forEach((zooAnimal, i)=>{
+    if(zooAnimals[i] === favAnimal){
+        hasAnimal = true
+    }else{
+        hasAnimal = false
+    }
+})
+
+if(hasAnimal){
+    console.log(`your favorite animal the ${favAnimal} is at the zoo`)
+}else{
+    console.log(`no your fav animal the ${favAnimal} is not located at this zoo`)
+}
+
+
+// convert a group of tempuratures(nums) to celcius
+
+console.log(`the temperatures in farenheit before conversion are ${nums}`)
+
+
+let celciusNums = nums.map((num) =>{
+    return num - 30
+})
+
+console.log(`those temperatures in celcius are ${celciusNums}`)
+
+
+// counting how many vowels exist in the following sentence
+
+
+
+function findAmountOfVowels(word){
+word = window.prompt("type your name")
+let vowels = [`a`,`e`,`i`,`o`,`u`,`y`,`w`]
+let vowelCount = 0
+// console.log(word[0])
+for(let i = 0; i < word.length; i++){
+    for(let j = 0; j < vowels.length; j++){
+        if(word[i] === vowels[j]){
+            vowelCount++
+        }
+    }   
+}
+console.log(`there are a total of ${vowelCount} vowel(s) in the word ${word}`)
+}
+findAmountOfVowels()
