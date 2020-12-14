@@ -1,13 +1,50 @@
 <html>
 <head>
-<button type="button" id="videoGenerator">
-    Click to find something to watch
-</button>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+<script src="p5.ThreeD.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" 
+rel="stylesheet">
 
-<a id="reccomendation"></a>
 
-    
+<w>Choose 1 Category:</w>
 
+<div>
+    <input type="radio" id="funnyCategory" name="drone" value="funnyCategory" checked>
+    <label for="funnyCategory">Funny</label>
+</div>
+
+
+<div>
+    <input type="radio" id="interestingOrInformativeCategory" name="drone" value="funnyCategory">
+    <label for="interestingOrInformativeCategory">Interesting/Informative</label>
+</div>
+
+<div>
+    <input type="radio" id="randomCategory" name="drone" value="randomCategory">
+    <label for="interestingOrInformativeCategory">Random (picks a random category)</label>
+</div>
+
+
+
+
+<div>
+    <button type="submit" type="button" 
+    id="videoGeneratorRandom">NOW! Click HERE to generate video </button>
+  </div>
+
+
+
+
+
+<!-- <p type="button" buttonType="submit" id="videoGeneratorRandom">
+    NOW! Click HERE to generate video 
+</p> -->
+<p>----
+    ----
+</p>
+
+
+<a id="reccomendation" target="_blank" class="logo-1"></a>
 
 
 
@@ -25,7 +62,22 @@
 
 </body>
 
+<!-- <iframe height="480" width="500"  
+src="https://www.youtube.com/watch?v=F5WWyyYG018"> 
+</iframe>  --> 
+<!-- embed link -->
 
 
 <script src="findsomethingtowatch.js"></script>
+<link href="findsomethingtowatch.css" rel="stylesheet"
 </html>
+
+
+
+
+
+
+
+
+<!-- Choose whether they want all categories or a specific category then  -->
+<!-- have it pick -->
