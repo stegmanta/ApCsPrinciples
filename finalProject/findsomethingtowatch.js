@@ -37,15 +37,21 @@ let category = ""
 
 let videoLinkList = [
     {
-        
         url: `https://www.youtube.com/watch?v=WojvlJ_xibE`,
         category: "Funny"
-
     },
     {
         url: `https://www.youtube.com/watch?v=7wHdU4FrMaQ`,
         category: "Funny"
 
+    },
+    {
+        url: `https://youtu.be/AkuOK5WBqXg`,
+        category: "Interesting/Informative"
+    },
+    {
+        url: 'https://youtu.be/ECQKwvEoD8o',
+        category: "Funny"
     },
     {
         url: `https://www.youtube.com/watch?v=F5WWyyYG018`,
@@ -105,7 +111,7 @@ function sortLinks(a){
         if(videoLinkList[i].category === a){
             // console.log(videoLinkList[i].category)
             sortedList.push(videoLinkList[i].url)
-            console.log(sortedList)
+            // console.log(sortedList)
             // console.log(links)
         }
     }
@@ -160,6 +166,7 @@ function generateVideo(){
         Music`
         sortedList = []
     }
+
     
 
     // console.log(check(funny))
