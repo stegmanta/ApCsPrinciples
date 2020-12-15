@@ -5,18 +5,29 @@ let videoGeneratorButton = document.getElementById("videoGeneratorRandom")
 let reccomender = document.getElementById("reccomendation")
 let funny = document.getElementById("funnyCategory")
 let interestingOrInformative = document.getElementById("interestingOrInformativeCategory")
+let random = document.getElementById("randomCategory")
+let music = document.getElementById("musicCategory")
 
 function getRandomInt(max){
     return Math.floor(Math.random() * Math.floor
     (max));
 }
 
-function checkFunny(){
-    if(funny.checked){
+// console.log(funny)
+
+function check(category){
+    if(category.checked){
         return true
     }else{
         return false
     }
+}
+
+function setup(){
+    createCanvas(500,500)
+}
+
+function draw(){
 }
 
 
@@ -71,106 +82,98 @@ videoGeneratorButton.addEventListener("click", generateVideo)
 //     return videoLinkList.find(element =>)
 // }
 
-let funnyVideoLinks = []
+let categoriesInOrder = []
+let linksInOrder = []
+let decidedLink
+let i = 0
+let links = getLinks()
+let link
+let count = 0;
+let categoryInOrder
+let sortedList = []
 
+
+function getLinks(){
+    for(i = 0; i < videoLinkList.length; i++){
+        linksInOrder.push(videoLinkList[i].url)
+    }
+    return linksInOrder
+}
+
+function sortLinks(a){
+    for(i = 0; i < videoLinkList.length; i++){
+        if(videoLinkList[i].category === a){
+            // console.log(videoLinkList[i].category)
+            sortedList.push(videoLinkList[i].url)
+            console.log(sortedList)
+            // console.log(links)
+        }
+    }
+    return sortedList[getRandomInt(sortedList.length)]
+}
+
+
+function getCategories(){
+    for(i = 0; i < videoLinkList.length; i++){
+        categoriesInOrder.push(videoLinkList[i].category)
+    }
+    return categoriesInOrder    
+}
 
 
 function generateVideo(){
-    console.log(checkFunny())
-    let i = 0
-    let funnyCount = 0;
-    for(i = 0; i < videoLinkList.length; i++){
-        let categoryInOrder = videoLinkList[i].category
-        let linksInOrder = videoLinkList[i].url
-        // console.log(categoryInOrder)
-        if(categoryInOrder === "Funny" && checkFunny()){
-            funnyVideoLinks.push(linksInOrder)
-            funnyCount++
-            console.log(`there are ${funnyCount} funny videos`)
-            console.log(funnyVideoLinks)
-            reccomender.href=linksInOrder;
-            reccomender.innerHTML = `Click HERE FOR YOUR VIDEO...in category
-            ${categoryInOrder}`
-        }if(categoryInOrder === "Random" && checkRandom){
 
-        }
-        
+    let categories = getCategories()
+    let randomSelection = getRandomInt(links.length)
+    if(check(random)){
+        reccomender.href = links[randomSelection]
+        console.log(reccomender)
+        reccomender.innerHTML = `Click HERE FOR YOUR VIDEO...in category
+        ${categories[randomSelection]}`
+        // categoriesInOrder = []
+        // linksInOrder = []
+
     }
+    if(check(funny)){
+        link = sortLinks("Funny")
+        reccomender.href = link
+        console.log(reccomender)
+        reccomender.innerHTML = `Click HERE FOR YOUR VIDEO...in category
+        Funny`
+        sortedList = []
+    }
+    if(check(interestingOrInformative)){
+        let interestingLink = sortLinks("Interesting/Informmative")
+        reccomender.href = interestingLink
+        // console.log(interestingLink)
+        console.log(reccomender)
+        reccomender.innerHTML = `Click HERE FOR YOUR VIDEO...in category
+        Interesting/Informative`
+        sortedList = []
+    }
+    if(check(music)){
+        let interestingLink = sortLinks("Music")
+        reccomender.href = interestingLink
+        // console.log(interestingLink)
+        console.log(reccomender)
+        reccomender.innerHTML = `Click HERE FOR YOUR VIDEO...in category
+        Music`
+        sortedList = []
+    }
+    
+
+    // console.log(check(funny))
     // console.log(`the link is ${[getRandomInt(videoLinkList.length)].url} 
     // and the category is ${[getRandomInt(videoLinkList.length)].category}`) figure out how to 
     // store the link and category
     //  variable each time the button is clicked
     // console.log(videoLinkList.length)
     // let link = getVidLink()
-    let decidedLink = getRandomInt(videoLinkList.length)
-    let randUrl = videoLinkList[decidedLink].url
-    let randCategory = videoLinkList[decidedLink].category
-    console.log("here is vid")
-    console.log(reccomender)
     // reccomender.href = link
     // use format like above to create a list of hrefs then choose randomly from the list
     // console.log(category)
     // system.log(reccomender.href=videoLinkList[getRandomInt(videoLinkList.length)].url)
-    
-    reccomender.href=randUrl;
-    reccomender.innerHTML = `Click HERE FOR YOUR VIDEO...in category
-    ${randCategory}`
     // console.log(category)
     
 }
 
-function generateDifferentVid(){
-
-}
-
-// function setup(){
-//     createCanvas(400,400)
-//     wordObject = createWord3D(
-//         "Dog",       // The actual character that you want to draw (anything that can be passed into "text()")
-//         4,        // How thick the 3D rendered letter is (i.e. how many cube pixels of size "size" it is on z-axis)  
-//         4,         // The size of a unit "box()" making up part of the letter  
-//         400,   // The size of the canvas it renders the letter on (higher is more detailed, 20-30 is a good range)  
-//         true,     // [OPTIONAL, default = true] Gives the bevelled, embossed 3D look (as seen in screenshot)  
-//         font,         // [OPTIONAL, default = "Georgia"] Gives the font uses, can be any default ones or anything added  
-//         style         // [OPTIONAL, default = BOLD] Gives the chosen style out of BOLD, NORMAL, ITALIC  
-//       )
-
-// }
-
-// function draw(){
-// wordObject.show()
-// p5.prototype.Word3D = function(p, string, depth, size , resolution, bevelled, font, style) {
-// 	// Adds spaces for kerning
-// 	this.string = string.split("").join(String.fromCharCode(8202));
-// 	this.stringLength = string.length;
-// 	this.font = font;
-// 	this.style = style;
-// 	this.threshold = 160; // Magic number, works well for text
-
-// 	this.create = function() {
-// 		// Create the 2D graphic
-// 		var graphic = p.createGraphics(this.resX*this.stringLength, this.resY);
-// 		// Draw the given string in the centre
-// 		graphic.textAlign("center", "center");
-// 		graphic.textSize(this.resX);
-// 		graphic.textFont(font);
-// 		graphic.textStyle(style);
-// 		graphic.background(255);
-// 		graphic.text(this.string, graphic.width / 2, graphic.height / 2);
-
-// 		return graphic;
-// 	}
-
-// 	p5.prototype.Object3D.call(this, p, depth, size, resolution, bevelled, this.threshold);
-// 	this.array = this.toArray(this.create());
-// 	this.rects = p5.prototype.getRects(this.array, this.bevelled);
-
-// 	this.modX = function() {
-// 		return (this.resX*this.stringLength / 2)
-// 	}
-// };
-
-// p5.prototype.createWord3D = function(string, depth = 6, size = 10, resolution = 50, bevelled = true, font = "Times New Roman", style = "bold") {
-//     return new p5.prototype.Word3D(p = this, string, depth, size, resolution, bevelled, font, style);
-// };
-// }
